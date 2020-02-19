@@ -3,4 +3,4 @@ import './database/mongoose'
 
 const PORT = 4000
 
-app.listen(PORT, () => console.log(`Treduler app listening on port ${PORT}!`))
+app.listen(PORT, () => console.log(`Treduler app server listening on port ${PORT}!`))
