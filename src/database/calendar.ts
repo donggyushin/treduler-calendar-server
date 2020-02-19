@@ -3,25 +3,30 @@ import { Document, Schema, model } from 'mongoose'
 interface scheduleFrame {
     text: string
     color: string
+    calendarId: string
 }
 
 interface ISchedule extends Document {
     text: string
     color: string
+    calendarId: string
 }
 
 const ScheduleSchema = new Schema({
     text: String,
-    color: String
+    color: String,
+    calendarId: String
 })
 
 export interface CalendarFrame {
+    userId: string
     dayName: string
     date: Date
     schedules: scheduleFrame[]
 }
 
 export interface ICalendar extends Document {
+    userId: string
     dayName: string
     date: Date
     schedules: ISchedule[]
@@ -29,6 +34,7 @@ export interface ICalendar extends Document {
 
 
 export const calendarSchema = new Schema({
+    userId: String,
     dayName: String,
     date: Date,
     schedules: [ScheduleSchema]
