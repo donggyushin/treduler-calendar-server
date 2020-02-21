@@ -3,6 +3,8 @@ import UserModel, { UserFrame } from '../../database/user'
 import { createToken } from '../../utils/jsonwebtoken'
 
 export const MakeNewAccount = async (req: Request, res: Response) => {
+
+
     interface IreqBody {
         email: string
         name: string
@@ -18,6 +20,7 @@ export const MakeNewAccount = async (req: Request, res: Response) => {
         profile: "",
         calendars: []
     }
+
     const newUser = new UserModel(userObject)
     try {
         await newUser.save()
@@ -35,6 +38,7 @@ export const MakeNewAccount = async (req: Request, res: Response) => {
 
     } catch (err) {
         res.status(500)
+        console.log(err.message)
         return res.json({
             error: 'Error occured while creating new user'
         })
