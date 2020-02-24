@@ -10,7 +10,7 @@ export interface UserFrame {
     calendars: CalendarFrame[]
 }
 
-interface IUser extends Document {
+export interface IUser extends Document {
     email: string
     name: string
     password: string

@@ -20,14 +20,12 @@ const ScheduleSchema = new Schema({
 
 export interface CalendarFrame {
     userId: string
-    dayName: string
     date: Date
     schedules: scheduleFrame[]
 }
 
 export interface ICalendar extends Document {
     userId: string
-    dayName: string
     date: Date
     schedules: ISchedule[]
 }
@@ -35,9 +33,8 @@ export interface ICalendar extends Document {
 
 export const calendarSchema = new Schema({
     userId: String,
-    dayName: String,
     date: Date,
-    schedules: [ScheduleSchema]
+    schedules: [ScheduleSchema],
 })
 
 const CalendarModel = model<ICalendar>('Calendar', calendarSchema)
